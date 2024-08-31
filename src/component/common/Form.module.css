@@ -1,0 +1,9 @@
+.form{
+    background-image: linear-gradient(to left, #eee,#fff);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+    border-radius: .5rem;
+    box-shadow: 2px 2px 10px 3px #ccc;
+}

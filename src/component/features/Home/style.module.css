@@ -1,0 +1,13 @@
+.header{
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(../../../image/—Pngtree—beautiful\ technology\ website\ business\ poster_1107136.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mhead{
+    color: #fff;
+    text-shadow: 2px 2px 3px #000;
+}
