@@ -1,0 +1,131 @@
+.header{
+    /* width: 100%; */
+    background-color: rgb(5, 139, 197);
+    transition: all .5s linear;
+    &:hover{
+        box-shadow: 0 0 10px 2px #ccc;
+    }
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 0;
+}
+.logo{
+    display: flex;
+    align-items: center;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    & ul{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        & li{
+            list-style: none;
+            & a{
+                text-decoration: none;
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: #ccc;
+                transition: all .3s linear;
+                padding: .2rem;
+                border-radius: .3rem;
+                &:hover{
+                    color: rgb(255, 255, 255);
+                    background-color: royalblue;
+                }
+                &:focus{
+                    color: rgb(255, 255, 255);
+                    background-color: royalblue;
+                }
+            }
+            
+        }
+        & .ShoppingCart{
+            position: relative;
+            & a{
+                color: #fff;
+                &:hover{
+                    background-color: transparent;
+                }
+                &:focus{
+                    background-color: transparent;
+                }
+                & .ShoppingCartNum{
+                    width: 1.2rem;
+                    aspect-ratio: 1;
+                    text-align: center;
+                    position: absolute;
+                    top: -7px;
+                    left: 25px;
+                    z-index: 1;
+                    background-color: rgb(238, 122, 86);
+                    border-radius: 50%;
+                    font-size: .8rem;
+                    /* padding: 0 2px;  */
+                }
+            } 
+        }
+    }
+}
+
+.reponsiveNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        & li{
+            list-style: none;
+            & a{
+                text-decoration: none;
+                font-size: 1.6rem;
+                font-weight: 500;
+                color: #ccc;
+                transition: all .3s linear;
+                padding: .2rem;
+                border-radius: .3rem;
+                &:hover{
+                    color: rgb(255, 255, 255);
+                    background-color: royalblue;
+                }
+                &:focus{
+                    color: rgb(255, 255, 255);
+                    background-color: royalblue;
+                }
+            }
+            
+        }
+        & .ShoppingCart{
+            position: relative;
+            & a{
+                color: #fff;
+                &:hover{
+                    background-color: transparent;
+                }
+                &:focus{
+                    background-color: transparent;
+                }
+                & .ShoppingCartNum{
+                    width: 1.2rem;
+                    aspect-ratio: 1;
+                    text-align: center;
+                    position: absolute;
+                    top: -7px;
+                    left: 25px;
+                    z-index: 1;
+                    background-color: rgb(238, 122, 86);
+                    border-radius: 50%;
+                    font-size: .8rem;
+                    /* padding: 0 2px;  */
+                }
+            } 
+        }
+    }
+}

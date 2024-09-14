@@ -1,0 +1,10 @@
+.contactImage{
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url("../../../image/contact.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.TextareaAutosize{
+    padding: .5rem;
+    font-size: 1.1rem;
+}
