@@ -1,8 +1,13 @@
 import React from 'react'
 import HeroSection from "../../common/HeroSection"
 import heroImage from '../../../image/About3.png'
+import {useProductContext} from '../../Context/ContextProduct'
+import data from '../../../Data'
 
-const index = () => {
+const Index = () => {
+
+  // const {name} = useProductContext()
+
   const message = {
     heading:"About Know"
   }
@@ -13,4 +18,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

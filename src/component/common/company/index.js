@@ -26,8 +26,8 @@ const index = () => {
                     </Typography>
                 </Stack>
                 <Stack justifyContent="space-between" alignItems="center" sx={{gap:{md:"3rem",sm:"2rem",xs:"1rem"},flexDirection:{md:"row",sm:"row",xs:"column"}}}>
-                    {CompanyLogo.map((item) => (
-                        <Stack flex="1" alignItems="center" justifyContent="center" className={style.Box}>
+                    {CompanyLogo.map((item,index) => (
+                        <Stack key={index} flex="1" alignItems="center" justifyContent="center" className={style.Box}>
                             <img className={style.img} src={item.image} alt="" />  
                         </Stack>
                     ))}
