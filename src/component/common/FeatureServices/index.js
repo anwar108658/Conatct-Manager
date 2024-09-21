@@ -23,7 +23,7 @@ const index = () => {
                 <Stack direction="row" justifyContent="space-evenly" gap="3rem" flexWrap="wrap">
                 {DataHandel && DataHandel.length? DataHandel.map((item) => (
                   <Link key={item.id} className={style.a} to={`/productsDetail/${item.id}`}>
-                    <Card data={{id:item.id,image:item.image,name:item.name,category:item.category,price:item.price}}/>
+                    <Card data={item}/>
                   </Link>
                 )):
                 <Typography>Data Not Found</Typography>
