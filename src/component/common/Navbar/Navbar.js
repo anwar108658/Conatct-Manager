@@ -20,7 +20,7 @@ const Navbar = () => {
               </Card>
               <Box sx={{display:{md:"flex",sm:"none",xs:"none"},flexDirection:"row",justifyContent:"center",alignItems:"center"}}>
                 <nav className={style.nav}>
-                    <ul className={style.ul}>
+                    <Box component="ul" sx={{display:"flex",flexDirection:"row"}} className={style.Box}>
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/about'>About</Link></li>
                         <li><Link to='/products'>Products</Link></li>
@@ -29,7 +29,7 @@ const Navbar = () => {
                         <ShoppingCart fontSize="large"/>
                         <span className={style.ShoppingCartNum}>1</span>
                         </Link></li>
-                    </ul>
+                    </Box>
                 </nav>
               </Box>
               <Box sx={{display:{md:"none",sm:"block"},justifyContent:"center",alignItems:"center"}}>
