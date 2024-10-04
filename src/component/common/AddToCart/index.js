@@ -5,9 +5,9 @@ import { Add, Check, Remove} from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 const Index = ({ productsDetail }) => {
-  const { id, stock, color } = productsDetail;
+  const { id, stock, colors } = productsDetail;
 
-  const [ccolor, setCcolor] = useState(color[0]);
+  const [ccolor, setCcolor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
 
   const increaseHandle = () => {
@@ -21,8 +21,8 @@ const Index = ({ productsDetail }) => {
     <>
       <Typography sx={{ display: "flex", gap: "0.3rem" }}>
         colors:
-        {color.map((elem, index) => (
-          <Box>
+        {colors.map((elem, index) => (
+          <Box key={index}>
             <IconButton
               key={index}
               className={style.button}

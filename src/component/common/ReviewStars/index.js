@@ -3,7 +3,6 @@ import { Box, Stack } from '@mui/material'
 import React from 'react'
 
 const index = ({stars,reviews}) => {
-    console.log(stars,reviews)
 
     const starGenerate = Array.from({length:5},(element,index) => {
         let number = index + 0.5;

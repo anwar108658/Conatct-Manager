@@ -101,7 +101,7 @@ const data = [
         image:imgL7,
         Description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, explicabo nobis sed a autem iure voluptatem tenetur doloremque dolor architecto doloribus perferendis aspernatur quia quaerat debitis accusamus facere voluptate perspiciatis.",
         category:"Laptop",
-        features:true,
+        features:false,
         stock:"30",
         stars:"3.5",
         reviews:"58",

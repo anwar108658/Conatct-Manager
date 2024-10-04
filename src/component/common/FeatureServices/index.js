@@ -1,15 +1,17 @@
-import { Container, Stack, Typography } from '@mui/material'
+import { Box, Container, Stack, Typography } from '@mui/material'
 import React from 'react'
 import style from "./style.module.css"
 import { Link } from 'react-router-dom'
 import data from '../../../Data'
 import Card from "../../common/Card"
+import Search from "../../../image/search.gif"
+import {useProductContext} from "../../Context/ContextProduct"
 
-const index = () => {
+const Index = () => {
 
-  const DataHandel = data.filter((item) => {
-    return item.features === true 
-  })
+  const {isloading,featureProducts} = useProductContext()
+  console.log(featureProducts)
+  const DataHandel = featureProducts
 
 
   return (
@@ -17,6 +19,9 @@ const index = () => {
         <section className={style.section}>
           <Container sx={{padding:"5rem 1rem"}}>
               <Stack gap="3rem">
+              {isloading && <Stack>
+                <Box component="img" sx={{width:"150px"}} src={Search}></Box>
+              </Stack>}
                 <Stack>
                     <Typography variant='h5' fontWeight="600">Our feature Services</Typography>
                 </Stack>
@@ -36,4 +41,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

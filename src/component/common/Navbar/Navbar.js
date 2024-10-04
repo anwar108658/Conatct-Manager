@@ -18,9 +18,9 @@ const Navbar = () => {
                   <ShoppingBag  sx={{fontSize:{lg:"2.3rem",md:"2rem",sm:"2rem",xs:"2rem"}}} />
                   <Typography variant="h5" sx={{fontWeight:"700",color:"royalblue",padding:"4px",fontSize:{lg:"2rem",md:"1.5rem",sm:"1.5rem",xs:"1.3rem"}}}>Ideal Shop</Typography>
               </Card>
-              <Box sx={{display:{md:"flex",sm:"none",xs:"none"},flexDirection:"row",justifyContent:"center",alignItems:"center"}}>
+              <Box sx={{display:{sm:"flex",xs:"none"},flexDirection:"row",justifyContent:"center",alignItems:"center"}}>
                 <nav className={style.nav}>
-                    <Box component="ul" sx={{display:"flex",flexDirection:"row"}} className={style.Box}>
+                    <Box component="ul" sx={{gap:{md:"2rem"},display:"flex",flexDirection:"row",alignItems:"center"}}>
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/about'>About</Link></li>
                         <li><Link to='/products'>Products</Link></li>
@@ -32,7 +32,7 @@ const Navbar = () => {
                     </Box>
                 </nav>
               </Box>
-              <Box sx={{display:{md:"none",sm:"block"},justifyContent:"center",alignItems:"center"}}>
+              <Box sx={{display:{sm:"none"},justifyContent:"center",alignItems:"center"}}>
               <IconButton sx={{zIndex:"2"}} onClick={handelerToggle}>
                 {toggle ?<Cancel sx={{color:"white"}} fontSize="large" />:<Menu sx={{color:"white"}} fontSize="large"/>}
               </IconButton>
