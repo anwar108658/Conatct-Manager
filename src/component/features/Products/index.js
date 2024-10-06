@@ -1,4 +1,4 @@
-import { Box, Button, Container, IconButton, Stack, Typography } from '@mui/material'
+import { Box, Button, Container, FormControl, IconButton, InputLabel, MenuItem, Select, Stack, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import Card from "../../common/Card"
 import data from '../../../Data'
@@ -8,6 +8,8 @@ import { GridView, List } from '@mui/icons-material'
 
 const Index = () => {
   const [toggle,setToggle] = useState(true);
+  const [filter,setFilter] = useState('');
+
   const toggleHandel = (e) => {
     if (e === "grid") {
       setToggle(true)
@@ -15,8 +17,8 @@ const Index = () => {
       setToggle(false)
     }
   }
-  const {products} = useFilterContext()
-  console.log(products)
+  const {products,handleChange} = useFilterContext()
+
   return (
     <Container sx={{padding:"3rem 1rem"}}>
       <Stack direction="row">
@@ -33,7 +35,27 @@ const Index = () => {
                 <List/>
               </IconButton>
             </Stack>
-            <Stack>dropdown</Stack>
+            <Stack direction="row" alignItems="center">
+              <Typography>Total Products : {products.length}</Typography>
+            </Stack>
+            <Stack>
+                  {console.log(filter)}
+              <FormControl sx={{width:"150px"}}>
+                <InputLabel id="demo-simple-select-label">Filter</InputLabel>
+                <Select
+                  size='small'
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={filter}
+                  label="Filter"
+                  onChange={(e) => setFilter(e.target.value)}
+                >
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+              </FormControl>
+            </Stack>
           </Stack>
           {toggle && <Stack direction="row" gap="1rem" justifyContent="space-evenly" flexWrap="wrap">
           {

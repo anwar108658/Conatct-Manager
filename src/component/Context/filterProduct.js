@@ -13,7 +13,10 @@ export const FilterProductContext = ({children}) => {
     useEffect(() => {
         dispatch({type:"SET_FILTER_DATA",payload:products})
     },[products])
-    return <FilterContext.Provider value={{...state}}>
+    const handleChange = (e) => {
+        console.log(e.target.value)
+    }
+    return <FilterContext.Provider value={{...state,handleChange}}>
         {children}
     </FilterContext.Provider>
 }
