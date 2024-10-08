@@ -20,7 +20,6 @@ const Index = () => {
   const {filter:{text},products,Allproducts,handleChange,updateFilterValue} = useFilterContext();
   const state = useFilterContext()
 
-
   useEffect(() => {
     handleChange(filter)    
   },[filter])
