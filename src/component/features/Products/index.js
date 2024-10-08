@@ -1,5 +1,5 @@
-import { Box, Button, Container, FormControl, IconButton, InputLabel, MenuItem, Select, Stack, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import { Box, Button, Container, FormControl, IconButton, InputLabel, MenuItem, Select, Stack, TextField, Typography } from '@mui/material'
+import React, { useEffect, useState } from 'react'
 import Card from "../../common/Card"
 import data from '../../../Data'
 import { Link } from 'react-router-dom'
@@ -17,13 +17,31 @@ const Index = () => {
       setToggle(false)
     }
   }
-  const {products,handleChange} = useFilterContext()
+  const {filter:{text},products,Allproducts,handleChange,updateFilterValue} = useFilterContext();
+  const state = useFilterContext()
 
+
+  useEffect(() => {
+    handleChange(filter)    
+  },[filter])
+
+  const getData = (Data,category) => {
+    let data =  Data.map((item) => item[category])
+    let newData = ["All", ...new Set(data)]
+    return newData
+  }
+  let category = getData(products,"category")
+  let copmany = getData(Allproducts,"company")
+  let colors = getData(Allproducts ,"colors")
+  console.table([category,copmany,colors])
+  console.log("data",state)
   return (
     <Container sx={{padding:"3rem 1rem"}}>
       <Stack direction="row">
         <Stack flex="1">
-          
+          <Box component="form" onSubmit={(e) => e.preventDefault()}>
+            <TextField label="Search" size='small' name='text' value={text} onChange={updateFilterValue}/>
+          </Box>
         </Stack>
         <Stack flex="3" gap='1rem'>
           <Stack direction="row" justifyContent="space-between">
@@ -36,10 +54,9 @@ const Index = () => {
               </IconButton>
             </Stack>
             <Stack direction="row" alignItems="center">
-              <Typography>Total Products : {products.length}</Typography>
+              <Typography>Total Products : {products?.length}</Typography>
             </Stack>
             <Stack>
-                  {console.log(filter)}
               <FormControl sx={{width:"150px"}}>
                 <InputLabel id="demo-simple-select-label">Filter</InputLabel>
                 <Select
@@ -50,9 +67,10 @@ const Index = () => {
                   label="Filter"
                   onChange={(e) => setFilter(e.target.value)}
                 >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value="lowest">Start lowest Price</MenuItem>
+                  <MenuItem value="heighest">Start heighest Price</MenuItem>
+                  <MenuItem value="a-z">Price (A-Z)</MenuItem>
+                  <MenuItem value="z-a">Price (Z-A)</MenuItem>
                 </Select>
               </FormControl>
             </Stack>
