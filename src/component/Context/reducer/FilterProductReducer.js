@@ -50,20 +50,36 @@ const FilterProductReducer = (state,action) => {
                 }
                 break;
                 case "ONCHANGE_SEARCH": {
-                  const { text } = state.filter;
-                  // if (text) {
-                      return {
-                          ...state,
-                          products: state.Allproducts.filter((item) =>
-                              item.name.toLowerCase().includes(text.toLowerCase())
-                          ),
-                      };
-                  // } else {
-                  //     return {
-                  //         ...state,
-                  //         products: [...state.Allproducts], 
-                  //     };
-                  // }
+                  const { text,category,Company } = state.filter;
+                  if (text) {
+                    return {
+                      ...state,
+                      products: state.Allproducts.filter((item) =>
+                        item.name.toLowerCase().includes(text.toLowerCase())
+                    ),
+                  };
+                }
+                if(category === "All" && Company === "All"){
+                  return {
+                    ...state,
+                    products: [...state.Allproducts]
+                  };
+                }
+                if(category !== "All"){
+                  return {
+                    ...state,
+                    products: state.Allproducts.filter((item) => item.category === category)
+                  };
+                }
+                if(Company !== "All"){
+                  return {
+                    ...state,
+                    products: state.Allproducts.filter((item) => item.company === Company)
+                  };
+                }
+                // if(category) {
+                //   console.log("third")
+                // }
               }
                 break;
     default:

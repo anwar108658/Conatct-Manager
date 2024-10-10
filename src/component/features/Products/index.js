@@ -17,30 +17,58 @@ const Index = () => {
       setToggle(false)
     }
   }
-  const {filter:{text},products,Allproducts,handleChange,updateFilterValue} = useFilterContext();
+  const {filter:{text,Company},products,Allproducts,blurHandel,handleChange,updateFilterValue} = useFilterContext();
   const state = useFilterContext()
 
   useEffect(() => {
     handleChange(filter)    
   },[filter])
-
-  const getData = (Data,category) => {
-    let data =  Data.map((item) => item[category])
+  const getData = (Data,type) => {
+    let data =  Data.map((item) => item[type])
     let newData = ["All", ...new Set(data)]
     return newData
   }
-  let category = getData(products,"category")
+
+  let category = getData(Allproducts,"category")
   let copmany = getData(Allproducts,"company")
   let colors = getData(Allproducts ,"colors")
-  console.table([category,copmany,colors])
-  console.log("data",state)
+
+  // console.table([category,copmany,colors])
+  // console.log("data",state)
   return (
     <Container sx={{padding:"3rem 1rem"}}>
       <Stack direction="row">
-        <Stack flex="1">
+        <Stack flex="1" gap="1rem">
           <Box component="form" onSubmit={(e) => e.preventDefault()}>
-            <TextField label="Search" size='small' name='text' value={text} onChange={updateFilterValue}/>
+            <TextField label="Search" size='small' name='text' value={text} onBlur={blurHandel} onChange={updateFilterValue}/>
           </Box>
+          <Stack>
+              <Typography variant='h6'>Category</Typography>
+            {category.map((item,index) => (
+              <Box key={index}>
+                <Button key={index}  type='button' value={item} name="category" onBlur={blurHandel} onClick={updateFilterValue} sx={{paddingRight:"3rem",border:"1px solid #fff",":focus":{border:"1px solid royalblue"}}}>{item}</Button>
+              </Box>
+            ))}
+          </Stack>
+          <Stack>
+          <FormControl sx={{width:"150px"}}>
+                <InputLabel id="demo-simple-select-label">Company</InputLabel>
+                <Select
+                  size='small'
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={Company}
+                  label="Company"
+                  name="Company"
+                  onBlur={blurHandel}
+                  onChange={updateFilterValue}
+                >
+                  {copmany.map((item,index) => (
+                    <MenuItem key={index} value={item} name="Company">{item}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+          </Stack>
         </Stack>
         <Stack flex="3" gap='1rem'>
           <Stack direction="row" justifyContent="space-between">

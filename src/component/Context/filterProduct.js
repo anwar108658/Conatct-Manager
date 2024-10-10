@@ -8,8 +8,10 @@ const initialState = {
     products:[],
     Allproducts:[],
     filter:{
-        text:""
-    }
+        text:"",
+        category:"All",
+        Company:"All",
+    }   
 }
 export const FilterProductContext = ({children}) => {
     const [state,dispatch] = useReducer(reducer,initialState)
@@ -25,10 +27,16 @@ export const FilterProductContext = ({children}) => {
         let value = e.target.value;
      return dispatch({type:"Set_SEARCH",payload:{name,value}})
     }
+    const blurHandel = () => {
+        state.filter.text = '';
+        state.filter.category = "All";
+        state.filter.Company = "All";
+        console.log(state.filter.category)
+    } 
     useEffect(() => {
         dispatch({type:"ONCHANGE_SEARCH"})
     },[state.filter])
-    return <FilterContext.Provider value={{...state,handleChange,updateFilterValue}}>
+    return <FilterContext.Provider value={{...state,blurHandel,handleChange,updateFilterValue}}>
         {children}
     </FilterContext.Provider>
 }
