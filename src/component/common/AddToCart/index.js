@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import style from "./style.module.css";
 import { Add, Check, Remove} from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import {useCartContext} from "../../Context/AddCartProduct"
 
 const Index = ({ productsDetail }) => {
+  let {addToCart} = useCartContext()
   const { id, stock, colors } = productsDetail;
 
   const [ccolor, setCcolor] = useState(colors[0]);
@@ -54,7 +56,7 @@ const Index = ({ productsDetail }) => {
           <Remove fontSize="small"/>
         </IconButton>
       </Stack>
-      <Link to="/cart">
+      <Link to="/cart" onClick={() => addToCart(id,ccolor,amount,productsDetail)}>
         <Button variant="contained">Add To Cart</Button>
       </Link>
     </>

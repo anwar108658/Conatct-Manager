@@ -12,25 +12,25 @@ const FilterProductReducer = (state,action) => {
             case "lowest":
               return{
               ...state,
-              products:[...state.products].sort((a,b) => a.price - b.price),
+              products:[...state.Allproducts].sort((a,b) => a.price - b.price),
             }
             break;
           case "heighest":
             return{
               ...state,
-              products:[...state.products].sort((a,b) => b.price - a.price),
+              products:[...state.Allproducts].sort((a,b) => b.price - a.price),
             }
             break;
             case "a-z":
               return{
               ...state,
-              products:[...state.products].sort((a,b) => a.name.localeCompare(b.name)),
+              products:[...state.Allproducts].sort((a,b) => a.name.localeCompare(b.name)),
             }
             break;
           case "z-a":
             return{
               ...state,
-              products:[...state.products].sort((a,b) => b.name.localeCompare(a.name)),
+              products:[...state.Allproducts].sort((a,b) => b.name.localeCompare(a.name)),
             }
             break;
             
@@ -50,7 +50,7 @@ const FilterProductReducer = (state,action) => {
                 }
                 break;
                 case "ONCHANGE_SEARCH": {
-                  const { text,category,Company } = state.filter;
+                  const { text,category,Company,Clear } = state.filter;
                   if (text) {
                     return {
                       ...state,
@@ -77,9 +77,12 @@ const FilterProductReducer = (state,action) => {
                     products: state.Allproducts.filter((item) => item.company === Company)
                   };
                 }
-                // if(category) {
-                //   console.log("third")
-                // }
+                if(Clear){
+                  return {
+                    ...state,
+                    products: [...state.Allproducts]
+                  };
+                }
               }
                 break;
     default:

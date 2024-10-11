@@ -38,7 +38,7 @@ const Index = () => {
   return (
     <Container sx={{padding:"3rem 1rem"}}>
       <Stack direction="row">
-        <Stack flex="1" gap="1rem">
+        <Stack flex="1" sx={{gap:{xs:"1rem",lg:"2rem"}}}>
           <Box component="form" onSubmit={(e) => e.preventDefault()}>
             <TextField label="Search" size='small' name='text' value={text} onBlur={blurHandel} onChange={updateFilterValue}/>
           </Box>
@@ -69,6 +69,11 @@ const Index = () => {
                 </Select>
               </FormControl>
           </Stack>
+          <Stack>
+          <Box>
+            <Button variant='contained' color='success' name="clear" onClick={updateFilterValue}>Clear Filter</Button>
+          </Box>
+          </Stack>
         </Stack>
         <Stack flex="3" gap='1rem'>
           <Stack direction="row" justifyContent="space-between">
@@ -92,6 +97,7 @@ const Index = () => {
                   id="demo-simple-select"
                   value={filter}
                   label="Filter"
+                  onBlur={blurHandel}
                   onChange={(e) => setFilter(e.target.value)}
                 >
                   <MenuItem value="lowest">Start lowest Price</MenuItem>

@@ -11,6 +11,7 @@ const initialState = {
         text:"",
         category:"All",
         Company:"All",
+        Clear:""
     }   
 }
 export const FilterProductContext = ({children}) => {
