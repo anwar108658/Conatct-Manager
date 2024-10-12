@@ -38,7 +38,7 @@ const Index = () => {
   return (
     <Container sx={{padding:"3rem 1rem"}}>
       <Stack sx={{flexDirection:{xs:"column",sm:"row"}}}>
-        <Stack flex="1" sx={{gap:{xs:"1rem",lg:"2rem"}, justifyContent:{xs:"space-evenly",sm:"normal"}}}>
+        <Stack flex="1" sx={{gap:{xs:"1rem",lg:"2rem"}, justifyContent:{xs:"space-evenly",sm:"normal"},flexDirection:{xs:"column-reverse",sm:"column"}}}>
           <Box component="form" onSubmit={(e) => e.preventDefault()}>
             <TextField label="Search" size='small' name='text' value={text} onBlur={blurHandel} onChange={updateFilterValue}/>
           </Box>
