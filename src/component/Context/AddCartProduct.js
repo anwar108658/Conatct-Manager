@@ -11,7 +11,7 @@ const getData = () => {
     }
 }
 const initialState={
-    cart:[]
+    cart:getData()
 }
 const CartProvider = ({children}) => {
     const [state,dispatch] = useReducer(reducer,initialState)
