@@ -30,7 +30,7 @@ const Navbar = () => {
                         <li><Link to='/contact'>Contact</Link></li>
                         <li className={style.ShoppingCart}><Link to='/cart'>
                         <ShoppingCart fontSize="large"/>
-                        {cart.length > 0 ? <span className={style.ShoppingCartNum}>{cart.length}</span>:""}
+                        {cart?.length > 0 ? <span className={style.ShoppingCartNum}>{cart?.length}</span>:""}
                         </Link></li>
                     </Box>
                 </nav>
@@ -60,7 +60,7 @@ const Navbar = () => {
                         <li><Link onClick={handelerToggle} to='/contact'>Contact</Link></li>
                         <li className={style.ShoppingCart}><Link onClick={handelerToggle} to='/cart'>
                         <ShoppingCart fontSize="large"/>
-                        {cart.length > 0 ? <span className={style.ShoppingCartNum}>{cart.length}</span>:""}
+                        {cart?.length > 0 ? <span className={style.ShoppingCartNum}>{cart?.length}</span>:""}
                         </Link></li>
                     </ul>
                 </nav>
