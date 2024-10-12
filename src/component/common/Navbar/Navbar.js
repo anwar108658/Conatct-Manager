@@ -3,8 +3,11 @@ import style from "./Navbar.module.css";
 import { Box, Card, Container, IconButton, Typography } from "@mui/material";
 import {  Cancel, Menu, Padding, Phone, ShoppingBag, ShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import {useCartContext} from "../../Context/AddCartProduct"
 
 const Navbar = () => {
+  let {cart} = useCartContext()
+  console.log("navbar",cart)
   const [toggle,setToggle] = useState(false);
   const handelerToggle = () =>{
     setToggle(!toggle);
@@ -27,7 +30,7 @@ const Navbar = () => {
                         <li><Link to='/contact'>Contact</Link></li>
                         <li className={style.ShoppingCart}><Link to='/cart'>
                         <ShoppingCart fontSize="large"/>
-                        <span className={style.ShoppingCartNum}>1</span>
+                        {cart.length > 0 ? <span className={style.ShoppingCartNum}>{cart.length}</span>:""}
                         </Link></li>
                     </Box>
                 </nav>
@@ -57,7 +60,7 @@ const Navbar = () => {
                         <li><Link onClick={handelerToggle} to='/contact'>Contact</Link></li>
                         <li className={style.ShoppingCart}><Link onClick={handelerToggle} to='/cart'>
                         <ShoppingCart fontSize="large"/>
-                        <span className={style.ShoppingCartNum}>1</span>
+                        {cart.length > 0 ? <span className={style.ShoppingCartNum}>{cart.length}</span>:""}
                         </Link></li>
                     </ul>
                 </nav>

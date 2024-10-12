@@ -3,7 +3,7 @@ import HeroSection from "../../common/HeroSection"
 import FeatureServices from "../../common/FeatureServices"
 import Services from "../../common/Services"
 import Company from "../../common/company"
-import heroImage from '../../../image/hero.jpg'
+import heroImage from '../../../image/front-image.jpg'
 
 const index = () => {
   const message = {

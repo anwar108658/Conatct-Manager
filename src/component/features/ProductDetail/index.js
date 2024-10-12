@@ -18,7 +18,7 @@ const Index = () => {
   console.log(dataHandel);
   return (
     <Container sx={{ padding: "5rem 1rem" }}>
-      {dataHandel && isloading === false ? <Stack direction="row" gap="2rem">
+      {dataHandel && isloading === false ? <Stack direction="row" gap="2rem" sx={{flexDirection:{xs:"column",md:"row"}}}>
         <Stack  justifyContent="center">
           <Box sx={{ maxWidth: "340px" ,aspectRatio:"1"}} src={dataHandel?.image?.[0]?.url} width="100%" component="img"></Box>
         </Stack>

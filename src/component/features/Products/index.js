@@ -37,12 +37,12 @@ const Index = () => {
   // console.log("data",state)
   return (
     <Container sx={{padding:"3rem 1rem"}}>
-      <Stack direction="row">
-        <Stack flex="1" sx={{gap:{xs:"1rem",lg:"2rem"}}}>
+      <Stack sx={{flexDirection:{xs:"column",sm:"row"}}}>
+        <Stack flex="1" sx={{gap:{xs:"1rem",lg:"2rem"}, justifyContent:{xs:"space-evenly",sm:"normal"}}}>
           <Box component="form" onSubmit={(e) => e.preventDefault()}>
             <TextField label="Search" size='small' name='text' value={text} onBlur={blurHandel} onChange={updateFilterValue}/>
           </Box>
-          <Stack>
+          <Stack sx={{flexDirection:{xs:"row",sm:"column"},flexWrap:"wrap"}} justifyContent="space-evenly">
               <Typography variant='h6'>Category</Typography>
             {category.map((item,index) => (
               <Box key={index}>
@@ -76,7 +76,7 @@ const Index = () => {
           </Stack>
         </Stack>
         <Stack flex="3" gap='1rem'>
-          <Stack direction="row" justifyContent="space-between">
+          <Stack direction="row" justifyContent="space-between" flexWrap="wrap">
             <Stack direction="row">
               <IconButton onClick={() => toggleHandel("grid")}>
                 <GridView/>
@@ -124,7 +124,7 @@ const Index = () => {
           {
           products && products.length? products.map((item,index) => (
               
-              <Stack direction="row" gap="2rem">
+              <Stack gap=".5rem" sx={{flexDirection:{xs:"column",md:"row"}}}>
                 <Stack sx={{maxWidth:"250px"}}>
                   <Box sx={{width:"100%"}} src={item.image} component="img"/>
                 </Stack>
